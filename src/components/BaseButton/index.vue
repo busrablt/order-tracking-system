@@ -3,7 +3,8 @@
     <button
       :style="customStyle"
       class="buttons"
-      :class="[buttonColor, { small: small }]"
+      :class="[buttonColor, { small: small }, { disable: disable }]"
+      :disabled="disable"
     >
       {{ value }}
     </button>
@@ -24,11 +25,15 @@ export default {
     },
     buttonColor: {
       type: String,
-      require,
+      require: true,
     },
     customStyle: {
       type: String,
       default: "",
+    },
+    disable: {
+      type: Boolean,
+      default: false,
     },
   },
 };
@@ -62,6 +67,12 @@ export default {
     width: 179px;
     font-size: 14px;
     border-radius: 3px;
+  }
+  &.disable {
+    background: $light-gray;
+    border: none;
+    color: $dark-gray;
+    cursor: not-allowed;
   }
 }
 </style>

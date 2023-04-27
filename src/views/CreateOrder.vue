@@ -17,7 +17,7 @@
         </div>
 
         <FormInput v-model="name" label="Name" />
-        <FormInput v-model="contract" label="Contract" type="number" />
+        <FormInput v-model="contact" label="Contact" type="number" />
         <span>Trans Type</span>
         <div class="container__right__radio-buttons">
           <RadioButton
@@ -34,7 +34,7 @@
           />
         </div>
         <FormInput
-          v-model="clientMessage"
+          v-model="message"
           label="Message to client"
           large
           multi-column
@@ -85,6 +85,7 @@
               value="Add Order"
               @click.native="addOrder()"
               :button-color="addOrderStyle"
+              :disable="isLoading"
             />
           </div>
         </div>
@@ -95,7 +96,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import { OrderType } from "@/utils/Constants";
+import { OrderType } from "@/utils/constants";
 import helpers from "@/utils/helpers";
 import PageHeader from "@/components/PageHeader";
 import FormInput from "@/components/FormInput";
@@ -120,9 +121,9 @@ export default {
       date: Date.now(),
       orderNumber: helpers.orderNumber(),
       name: "",
-      contract: "",
+      contact: "",
       checkValue: "Delivery",
-      clientMessage: "",
+      message: "",
       totalAmount: "",
       calculateCost: helpers.calculateCost,
       isOpenMultiselect: false,
@@ -131,7 +132,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      setOrderList: "setOrderList",
+      createOrder: "createOrder",
     }),
     dateFormat(date) {
       return helpers.dateFormat(date);
@@ -146,33 +147,41 @@ export default {
     cancel() {
       this.deliveryDetails = [];
     },
-    addOrder() {
+    async addOrder() {
       if (this.isAddOrderActive) {
         const payload = {
           id: this.orderNumber,
           type: OrderType.newOrder,
+          message: this.message,
           recordInfo: [
             { value: "Order number", key: this.orderNumber },
             { value: "Date & Time", key: this.dateFormat(this.date) },
             { value: "Name", key: this.name },
-            { value: "Contact", key: this.contract },
+            { value: "Contact", key: this.contact },
             { value: "Trans Type", key: this.checkValue },
             { value: "Amount", key: this.totalAmount },
           ],
           orderedItems: this.deliveryDetails,
         };
-        this.setOrderList(payload);
+
+        const orderId = await this.createOrder(payload);
+        if (!orderId) {
+          return;
+        }
         this.$toast.success("New order added!");
         this.$router.push("/new-orders");
+      } else {
+        this.$toast.warning("Please fill all fields!");
       }
     },
   },
   computed: {
     ...mapGetters({
       orderItems: "getOrderItems",
+      isLoading: "getLoading",
     }),
     isAddOrderActive() {
-      return this.deliveryDetails.length && this.name && this.contract;
+      return this.deliveryDetails.length && this.name && this.contact;
     },
     addOrderStyle() {
       return this.isAddOrderActive ? "green" : "blue";

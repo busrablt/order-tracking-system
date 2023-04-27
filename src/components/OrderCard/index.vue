@@ -27,18 +27,18 @@
       <span class="ordered-item-title">Ordered Items</span>
       <ul>
         <li v-for="(order, index) in orderInfos.orderedItems" :key="index">
-          <span>{{ order.food }} X {{ order.amount }}</span>
+          <span>{{ order.value }} X {{ order.amount }}</span>
         </li>
       </ul>
     </div>
 
-    <div class="light-text">Additional information from customer</div>
-
+    <div class="light-text" v-if="orderInfos.message">
+      Additional information from customer
+    </div>
     <div class="last-field">
       <div class="dark-text">
         <span v-if="orderInfos.message">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna id
-          felis.
+          {{ orderInfos.message }}
         </span>
       </div>
       <div class="last-field__button">
@@ -58,7 +58,7 @@
 
 <script>
 import { mapActions } from "vuex";
-import { OrderType } from "@/utils/Constants";
+import { OrderType } from "@/utils/constants";
 import OrderTag from "@/components/OrderTag";
 import BaseButton from "@/components/BaseButton";
 export default {
