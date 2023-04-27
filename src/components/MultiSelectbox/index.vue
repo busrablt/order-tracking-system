@@ -1,5 +1,5 @@
 <template>
-  <div id="multi-select">
+  <div id="multi-select" v-click-outside="hideList">
     <div class="multi-select" @click="isOpen = !isOpen">
       <span v-if="selectedItems.length">{{ selectedText }}</span>
       <span v-else class="multi-select__placeholder">
@@ -47,6 +47,9 @@ export default {
   methods: {
     toggle() {
       this.$emit("update", this.selectedItems);
+    },
+    hideList() {
+      this.isOpen = false;
     },
   },
   computed: {

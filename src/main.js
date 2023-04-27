@@ -6,6 +6,7 @@ import { initializeApp } from "firebase/app";
 import "@/assets/scss/main.scss";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
+import "@/directives/index";
 
 Vue.config.productionTip = false;
 const firebaseConfig = {
