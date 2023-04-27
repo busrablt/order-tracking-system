@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import { OrderType } from "@/utils/Constants";
 import helpers from "@/utils/helpers";
 import PageHeader from "@/components/PageHeader";
@@ -126,53 +126,6 @@ export default {
       totalAmount: "",
       calculateCost: helpers.calculateCost,
       isOpenMultiselect: false,
-      orderItems: [
-        {
-          value: "Beef Stroganoff",
-          amount: 1,
-          price: "20",
-        },
-        {
-          value: "Reuben",
-          amount: 1,
-          price: "34",
-        },
-        {
-          value: "Sandwich",
-          amount: 1,
-          price: "28",
-        },
-        {
-          value: "Waldorf Salad",
-          amount: 1,
-          price: "45",
-        },
-        {
-          value: "French Fries",
-          amount: 1,
-          price: "20",
-        },
-        {
-          value: "Caesar Salad",
-          amount: 1,
-          price: "20",
-        },
-        {
-          value: "Chicken à la King",
-          amount: 1,
-          price: "29",
-        },
-        {
-          value: "Lobster Newburg",
-          amount: 1,
-          price: "22",
-        },
-        {
-          value: "Salisbury Steak",
-          amount: 1,
-          price: "55",
-        },
-      ],
       deliveryDetails: [],
     };
   },
@@ -215,6 +168,9 @@ export default {
     },
   },
   computed: {
+    ...mapGetters({
+      orderItems: "getOrderItems",
+    }),
     isAddOrderActive() {
       return this.deliveryDetails.length && this.name && this.contract;
     },
