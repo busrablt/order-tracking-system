@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-    <PageHeader header="Create Order" />
+    <PageHeader header="Create Order" :is-visible-add-order="false" />
     <div class="container">
       <div class="container__right">
         <div class="container__right__info">
@@ -43,9 +43,10 @@
           :options="orderItems"
           placeholder="Pending"
           @update="(list) => (deliveryDetails = list)"
+          @isOpenMultiselect="(value) => (isOpenMultiselect = value)"
         />
 
-        <div v-if="deliveryDetails.length">
+        <div v-if="deliveryDetails.length && !isOpenMultiselect">
           <div
             v-for="(item, key) in deliveryDetails"
             :key="key"
@@ -124,6 +125,7 @@ export default {
       clientMessage: "",
       totalAmount: "",
       calculateCost: helpers.calculateCost,
+      isOpenMultiselect: false,
       orderItems: [
         {
           value: "Beef Stroganoff",
@@ -174,13 +176,9 @@ export default {
       deliveryDetails: [],
     };
   },
-  mounted() {
-    this.setList();
-  },
   methods: {
     ...mapActions({
       setOrderList: "setOrderList",
-      setList: "setList",
     }),
     dateFormat(date) {
       return helpers.dateFormat(date);
@@ -250,7 +248,7 @@ export default {
           display: block;
 
           span {
-            font-size: 18px;
+            font-size: 17px;
             width: 100%;
             max-width: 200px;
             display: inline-flex;
@@ -258,7 +256,7 @@ export default {
 
           small {
             font-weight: 400;
-            font-size: 18px;
+            font-size: 17px;
             color: $dark-gray;
           }
         }

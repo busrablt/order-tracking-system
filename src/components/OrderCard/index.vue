@@ -36,7 +36,10 @@
 
     <div class="last-field">
       <div class="dark-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna id felis.
+        <span v-if="orderInfos.message">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna id
+          felis.
+        </span>
       </div>
       <div class="last-field__button">
         <img alt="printer" src="@/assets/icons/icon-printer.svg" />
@@ -105,6 +108,10 @@ export default {
   &__infos {
     display: flex;
     justify-content: space-between;
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+      gap: 15px;
+    }
     &__item {
       display: flex;
       flex-direction: column;
@@ -134,14 +141,6 @@ export default {
       }
     }
   }
-  .light-text {
-    color: $dark-gray;
-    font-size: 16px;
-    font-weight: 400;
-  }
-  .dark-text {
-    font-size: 17px;
-  }
   .moveToCooking {
     color: #ffffff;
     background: $blue;
@@ -153,6 +152,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 10px;
+    }
     &__button {
       display: flex;
       align-items: center;

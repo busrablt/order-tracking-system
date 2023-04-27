@@ -4,7 +4,7 @@
       <div class="page-header__icon"></div>
       <span>{{ header }}</span>
     </div>
-    <div class="orders-container">
+    <div class="orders-container" v-if="isVisibleAddOrder">
       <span class="orders-container__count">
         <small class="orders-container__count__icon" /> Showing 10 Orders
       </span>
@@ -29,6 +29,10 @@ export default {
     header: {
       type: String,
       default: "",
+    },
+    isVisibleAddOrder: {
+      type: Boolean,
+      default: true,
     },
   },
   methods: {

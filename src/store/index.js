@@ -10,6 +10,7 @@ export default new Vuex.Store({
       {
         id: "#111111",
         type: "accepted",
+        message: "Please send salad and green chantni with 2 paper dish.",
         recordInfo: [
           { value: "Order number", key: "#111111" },
           { value: "Date & Time", key: "01/01/2020 at 2:14Pm" },

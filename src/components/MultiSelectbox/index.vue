@@ -58,6 +58,11 @@ export default {
       return array.join();
     },
   },
+  watch: {
+    isOpen(value) {
+      this.$emit("isOpenMultiselect", value);
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
