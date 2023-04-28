@@ -13,7 +13,10 @@
           :value="info.key"
           :type="findType(info.key)"
         />
-        <div v-else-if="info.value === 'Amount'" class="flex-wrapper">
+        <div
+          v-else-if="info.value === 'Amount'"
+          class="order-container__infos__item__amount"
+        >
           <span class="dark-text">
             {{ info.key }}
           </span>
@@ -116,15 +119,28 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 4px;
+      &__amount {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @media screen and (max-width: 1000px) {
+          justify-content: flex-start;
+        }
+      }
     }
   }
   &__ordered-items {
     display: flex;
-    align-items: center;
     margin: 40px 0;
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+    }
     ul {
       display: block;
       padding: 0 15px;
+      @media screen and (max-width: 1000px) {
+        padding: 15px 0;
+      }
 
       li {
         display: inline-block;
@@ -156,6 +172,7 @@ export default {
       flex-direction: column;
       gap: 15px;
       margin-top: 10px;
+      align-items: flex-start;
     }
     &__button {
       display: flex;

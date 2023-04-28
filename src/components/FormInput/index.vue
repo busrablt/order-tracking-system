@@ -65,12 +65,8 @@ textarea {
   height: 40px;
   width: 100%;
   font-size: 18px;
-  font-family: "SF Pro Display";
-  padding-left: 18px;
+  text-indent: 18px;
 
-  @media screen and (min-width: 1000px) {
-    width: 95%;
-  }
   &.large {
     height: 110px;
     padding-top: 20px;

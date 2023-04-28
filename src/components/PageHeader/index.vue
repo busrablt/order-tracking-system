@@ -65,6 +65,11 @@ export default {
   padding: 35px 0 25px 0;
   border-bottom: 1.5px solid #e5e5e5;
   margin-bottom: 25px;
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
   &__count {
     background: #ebebeb;
     border: 1px solid #ebebeb;

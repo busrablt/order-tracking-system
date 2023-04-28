@@ -192,7 +192,7 @@ export default {
 
 <style lang="scss" scoped>
 .main-container {
-  padding: 20px;
+  padding: 28px;
 }
 .container {
   @media screen and (min-width: 1000px) {
@@ -205,7 +205,10 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 28px;
-    border-right: 1px solid #ebebeb;
+    @media screen and (min-width: 1000px) {
+      padding-right: 34px;
+      border-right: 1px solid #ebebeb;
+    }
     &__info {
       ul {
         li {
