@@ -75,17 +75,12 @@ export default {
   padding: 24px;
 
   &__header {
-    font-style: normal;
     font-weight: 600;
     font-size: 18px;
     margin-bottom: 28px;
   }
 
   table {
-    border: none;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
     width: 100%;
     table-layout: fixed;
   }
@@ -126,6 +121,29 @@ export default {
   }
   .bold {
     font-weight: 600;
+  }
+}
+@media screen and (max-width: 1000px) {
+  table thead {
+    position: absolute;
+    overflow: hidden;
+    width: 2px;
+  }
+
+  table tr {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  table td {
+    display: block;
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    margin-right: 10px;
   }
 }
 </style>
