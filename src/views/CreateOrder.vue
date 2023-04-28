@@ -205,9 +205,11 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 28px;
+    margin-bottom: 20px;
     @media screen and (min-width: 1000px) {
       padding-right: 34px;
       border-right: 1px solid #ebebeb;
+      margin-bottom: 0;
     }
     &__info {
       ul {
@@ -233,6 +235,9 @@ export default {
     &__radio-buttons {
       display: flex;
       gap: 70px;
+      @media screen and (max-width: 1000px) {
+        gap: 10px;
+      }
     }
     .delivery-items {
       display: flex;

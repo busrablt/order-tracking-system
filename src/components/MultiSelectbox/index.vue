@@ -85,7 +85,7 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 100%;
-    max-width: 680px;
+    max-width: 600px;
   }
 }
 .list {

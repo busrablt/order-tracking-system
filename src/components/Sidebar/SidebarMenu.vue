@@ -66,9 +66,8 @@ export default {
   watch: {
     "$route.path": {
       handler(value) {
-        if (value === "/create-order") {
-          this.activeMenu = "";
-        }
+        const selectedMenu = this.menuItems.find((menu) => menu.url === value);
+        this.activeMenu = selectedMenu.key;
       },
       deep: true,
       immediate: true,

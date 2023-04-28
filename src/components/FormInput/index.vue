@@ -6,7 +6,6 @@
       :value="value"
       @input="setInput"
       :class="{ large: large }"
-      :type="type"
     />
     <input
       v-else
