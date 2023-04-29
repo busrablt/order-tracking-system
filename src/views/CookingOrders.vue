@@ -1,7 +1,7 @@
 <template>
   <div class="layout-center">
+    <PageHeader header="Cooking" />
     <div v-if="cookingList.length">
-      <PageHeader header="Cooking" />
       <div v-for="(order, key) in cookingList" :key="key">
         <OrderCard :order-infos="order" />
       </div>
