@@ -6,7 +6,7 @@
         <OrderCard :order-infos="order" />
       </div>
     </div>
-    <InfoMessage v-else message="You do not have an new order" />
+    <InfoMessage v-else message="You do not have a new order" />
   </div>
 </template>
 

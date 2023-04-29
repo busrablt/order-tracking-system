@@ -30,11 +30,11 @@ export default {
       setMobileSidebarVisibility: "SET_SIDEBAR_VISIBILITY",
     }),
     setActiveMenu(menu) {
-      this.activeMenu = menu.key;
-      this.$router.push(menu.url);
-      if (window.width < 1000) {
+      if (window.innerWidth < 1000) {
         this.setMobileSidebarVisibility(false);
       }
+      this.activeMenu = menu.key;
+      this.$router.push(menu.url);
     },
   },
   computed: {
