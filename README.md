@@ -15,6 +15,5 @@ npm run serve
 npm run test:unit
 ```
 
-run lint
-```
+
 
