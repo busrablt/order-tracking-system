@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 export default {
   name: "SidebarMenu",
   data() {
@@ -26,9 +26,15 @@ export default {
     };
   },
   methods: {
+    ...mapMutations({
+      setMobileSidebarVisibility: "SET_SIDEBAR_VISIBILITY",
+    }),
     setActiveMenu(menu) {
       this.activeMenu = menu.key;
       this.$router.push(menu.url);
+      if (window.width < 1000) {
+        this.setMobileSidebarVisibility(false);
+      }
     },
   },
   computed: {

@@ -195,7 +195,7 @@ export default {
   padding: 28px;
 }
 .container {
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: map-get($breakpoints, "md")) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -206,7 +206,7 @@ export default {
     flex-direction: column;
     gap: 28px;
     margin-bottom: 20px;
-    @media screen and (min-width: 1000px) {
+    @media screen and (min-width: map-get($breakpoints, "md")) {
       padding-right: 34px;
       border-right: 1px solid #ebebeb;
       margin-bottom: 0;
@@ -235,7 +235,7 @@ export default {
     &__radio-buttons {
       display: flex;
       gap: 70px;
-      @media screen and (max-width: 1000px) {
+      @media screen and (max-width: map-get($breakpoints, "md")) {
         gap: 10px;
       }
     }

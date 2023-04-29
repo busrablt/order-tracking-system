@@ -20,7 +20,7 @@ export default {
 <style lang="scss" scoped>
 .sidebar-container {
   display: flex;
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: map-get($breakpoints, "md")) {
     flex-direction: column;
   }
 }

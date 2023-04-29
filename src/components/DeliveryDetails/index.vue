@@ -117,13 +117,13 @@ export default {
   justify-content: space-between;
 
   span {
-    font-size: 24px;
+    font-size: 18px;
   }
   .bold {
     font-weight: 600;
   }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: map-get($breakpoints, "md")) {
   table thead {
     position: absolute;
     overflow: hidden;

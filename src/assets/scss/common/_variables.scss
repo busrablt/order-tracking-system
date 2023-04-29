@@ -5,5 +5,9 @@ $light-gray: #cccccc;
 $dark-gray: #737376;
 $green: #0dc74e;
 $yellow: #baa500;
-$orange: #FC7501
+$orange: #FC7501;
+
+$breakpoints: (
+  "md": 1000px,
+) !default;
 

@@ -12,6 +12,7 @@ export default new Vuex.Store({
     orderItems: [],
     orderList: [],
     loading: false,
+    isVisibleSidebar: false,
   },
   mutations: {
     SET_ORDER_LIST(state, list) {
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     },
     SET_LOADING(state, loading) {
       state.loading = loading;
+    },
+    SET_SIDEBAR_VISIBILITY(state, value) {
+      state.isVisibleSidebar = value;
     },
   },
   actions: {
@@ -119,6 +123,9 @@ export default new Vuex.Store({
     },
     getLoading(state) {
       return state.loading;
+    },
+    getSidebarVisibility(state) {
+      return state.isVisibleSidebar;
     },
   },
 });

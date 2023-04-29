@@ -39,10 +39,6 @@ export default {
   align-items: center;
   gap: 20px;
   padding: 15px;
-  @media screen and (max-width: 1000px) {
-    flex-direction: row;
-    justify-content: space-between;
-  }
   &__logo {
     height: 60px;
     width: 60px;
@@ -53,6 +49,15 @@ export default {
     padding: 15px 0;
     height: 30px;
     width: 30px;
+  }
+  @media screen and (max-width: map-get($breakpoints, "md")) {
+    flex-direction: row;
+    justify-content: space-between;
+    &__logo {
+      height: 40px;
+      width: 40px;
+      background-size: contain;
+    }
   }
 }
 </style>

@@ -57,6 +57,14 @@ export default {
     font-size: 30px;
     margin-left: 25px;
   }
+  @media screen and (max-width: map-get($breakpoints, "md")) {
+    &__icon {
+      display: none;
+    }
+    span {
+      margin: 0;
+    }
+  }
 }
 .orders-container {
   display: flex;
@@ -65,10 +73,11 @@ export default {
   padding: 35px 0 25px 0;
   border-bottom: 1.5px solid #e5e5e5;
   margin-bottom: 25px;
-  @media screen and (max-width: 1000px) {
-    flex-direction: column;
-    align-items: flex-start;
+  @media screen and (max-width: map-get($breakpoints, "md")) {
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 15px;
+    padding: 10px 0;
   }
   &__count {
     background: #ebebeb;

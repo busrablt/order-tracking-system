@@ -23,7 +23,11 @@ ul {
   gap: 10px;
 }
 .layout-center {
-  padding: 35px 41px 0 0;
+  padding: 46px 41px 0 38px;
+  @media screen and (max-width: 1000px){
+    padding: 46px 20px 0;
+    
+  }
 }
 .light-text {
   color: $dark-gray;
@@ -32,5 +36,25 @@ ul {
 }
 .dark-text {
   font-size: 17px;
+}
+
+@media screen and (max-width: map-get($breakpoints, "md")) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar-container {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    background-color: #00000070;
+    height: 100vh;
+    .sidebar-icon-container {
+      padding: 40px 15px 20px;
+      background-color: #fff;
+    }
+    .sidebar-menu-container[data-v-5bdf82f0] {
+      width: auto;
+    }
+  }
 }
 

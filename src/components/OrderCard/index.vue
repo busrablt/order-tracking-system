@@ -52,7 +52,6 @@
           button-color="blue"
           small
           @click.native="moveToOrder()"
-          custom-style="width: 169px;border: 1px solid #2159c8;"
         />
       </div>
     </div>
@@ -108,10 +107,13 @@ export default {
   border-radius: 10px;
   padding: 24px 35px;
   margin-bottom: 20px;
+  @media screen and (max-width: map-get($breakpoints, "md")) {
+    padding: 16px;
+  }
   &__infos {
     display: flex;
     justify-content: space-between;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: map-get($breakpoints, "md")) {
       flex-direction: column;
       gap: 15px;
     }
@@ -123,7 +125,10 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        @media screen and (max-width: 1000px) {
+        .dark-text {
+          margin-right: 8px;
+        }
+        @media screen and (max-width: map-get($breakpoints, "md")) {
           justify-content: flex-start;
         }
       }
@@ -132,13 +137,14 @@ export default {
   &__ordered-items {
     display: flex;
     margin: 40px 0;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: map-get($breakpoints, "md")) {
       flex-direction: column;
+      margin: 25px 0 0;
     }
     ul {
       display: block;
       padding: 0 15px;
-      @media screen and (max-width: 1000px) {
+      @media screen and (max-width: map-get($breakpoints, "md")) {
         padding: 15px 0;
       }
 
@@ -146,6 +152,10 @@ export default {
         display: inline-block;
         width: fit-content;
         margin-right: 12px;
+        @media screen and (max-width: map-get($breakpoints, "md")) {
+          display: grid;
+          margin: 0 12px 5px 0;
+        }
 
         span {
           font-size: 14px;
@@ -154,6 +164,15 @@ export default {
           padding: 5px 10px;
           border: none;
         }
+      }
+    }
+    .ordered-item-title {
+      color: #737376;
+      width: 70px;
+      margin: -6px 0 0;
+      display: block;
+      @media screen and (max-width: map-get($breakpoints, "md")) {
+        width: fit-content;
       }
     }
   }
@@ -168,7 +187,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: map-get($breakpoints, "md")) {
       flex-direction: column;
       gap: 15px;
       margin-top: 10px;

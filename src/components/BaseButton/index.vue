@@ -41,10 +41,11 @@ export default {
 
 <style lang="scss" scoped>
 .buttons {
-  width: 100%;
   height: 50px;
   border-radius: 5px;
   cursor: pointer;
+  padding: 0 19px;
+  width: 100%;
   &.tranparent {
     background: $white;
     border: 1.5px solid $light-gray;
@@ -64,9 +65,11 @@ export default {
   }
   &.small {
     height: 40px;
-    width: 179px;
     font-size: 14px;
     border-radius: 3px;
+    @media screen and (min-width: 1000px) {
+      width: fit-content;
+    }
   }
   &.disable {
     background: $light-gray;
